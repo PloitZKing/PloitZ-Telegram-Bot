@@ -33,6 +33,12 @@ def show_help(message):
     help_text += "/snapify - get help with snapify"
     bot.reply_to(message, help_text)
 
+def welcome_new_members(message):
+    for new_member in message.new_chat_members:
+        bot.send_message(message.chat.id, f"Welcome, {new_member.first_name}! Thanks for joining the chat.")
+
+def leave_chat_member(message):
+    bot.send_message(message.chat.id, f"{message.left_chat_member.first_name} has left the chat.")
 
 # Start the bot
 bot.infinity_polling()
