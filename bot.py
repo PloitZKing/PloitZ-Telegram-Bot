@@ -1,5 +1,7 @@
 import telebot
 import os
+import keep_alive
+
 # Replace 'YOUR_API_TOKEN' with the token you received from BotFather
 API_TOKEN = os.environ['TOKEN']
 
@@ -64,13 +66,14 @@ def leave_chat_member(message):
 def check_online(message):
   bot.send_message(message.chat.id, "I'm online and ready to assist you!")
 
-@bot.message_handler(commands=['snapify'])
+@bot.message_handler(commands=['gmail', 'spammer', 'mailspammer'])
 def snapify(message):
   bot.reply_to(
       message,
-      "Snapify Help : Usage and Installation\nTutorial: https://github.com/unofficialdxnny/gmail-spammer"
+      "gmail spammer Help : Usage and Installation\nTutorial: https://github.com/unofficialdxnny/gmail-spammer"
   )
 
 
 # Start the bot
+keep_alive.keep_alive()
 bot.infinity_polling()
